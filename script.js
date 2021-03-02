@@ -4,7 +4,7 @@ $("#currentDay").text(today.format("MMMM Do, YYYY, h:mm:ss a"));
 var currentHour = today.format("h a")
 console.log(currentHour)
 var hourID = $('input[name="data-hour"]').value();
-var time8 = $("#textarea1")
+var time8 = $(".textarea1")
 
 function timeAtt() {
 if (hourID == currentHour) {
