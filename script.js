@@ -1,36 +1,30 @@
 var today = moment();
 $("#currentDay").text(today.format("MMMM Do, YYYY, h:mm:ss a"));
 
-var currentHour = today.format("HH")
-var future = $(".future");
-var present = $(".present");
-var past = $(".past");
-var hourID = $('input[data-hour="8"]');
+var currentHour = today.format("h a")
+console.log(currentHour)
+var hourID = $('input[name="data-hour"]').value();
+var time8 = $("#textarea1")
 
+function timeAtt() {
 if (hourID == currentHour) {
-    future.hide();
-    present.show();
-    past.hide();
-};
-if (hourID > currentHour) {
-    future.show();
-    present.hide();
-    past.hide()
-}
-if (hourID < currentHour) {
-    future.hide();
-    present.hide();
-    past.show();
-}
+    time8.removeClass(".future, .past")
+    time8.addClass(".present")
+} else if (hourID > currentHour) {
+    time8.removeClass(".present, .past")
+    time8.addClass(".future")
+} else if (hourID < currentHour) {
+    time8.removeClass(".future, .present")
+    time8.addclass(".past")
+}}
 
 
 
 var saveBtn = $('.saveBtn')
-var textarea1 = $('#textarea1')
 var comment = textarea1.value.trim()
 
 function storeComments() {
-localStorage.setItem("#textarea1", JSON.stringify(textarea1.value.trim()));
+localStorage.setItem("#textarea1", JSON.stringify(time8.value.trim()));
 }
 
 $(".saveBtn").on("click", function(event) {
